@@ -29,9 +29,7 @@ new Vue({
 
         complete: function (todo) {
             todo.completed = !todo.completed;
-            console.log(todo.completed);
             this.$http.post('api/todo/complete', todo);
         }
-
     }
 });

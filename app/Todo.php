@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 class Todo extends Model
 {
     protected $fillable = [
-        'body'
+        'body',
+        'completed'
+    ];
+
+    protected $casts = [
+        'completed' => 'boolean',
     ];
 }
