@@ -1,14 +1,10 @@
-require('/vue.js');
-require('/vueresource.js');
+var Vue = require('vue');
+Vue.use(require('vue-resource'));
 
-import Todo from 'todo.vue';
+import Todo from './todo.vue';
 
 new Vue({
     el: '#app',
 
-    components: { Todo },
-
-    ready() {
-        alert('works')
-    }
+    components: { Todo }
 });

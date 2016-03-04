@@ -1,10 +1,10 @@
 <template>
     <div>
-        <h1>@{{ heading }}</h1>
+        <h1>{{ heading }}</h1>
         <input placeholder="Enter ToDo" class="form-control" type="text" v-on:keyup.enter="save" v-model="input">
         <ul class="list-group">
             <li @click="complete(todo)" class="list-group-item " v-for="todo in todos">
-                <span class="@{{ todo.completed ? 'done' : 'undone' }}">@{{ todo.body }}</span>
+                <span class="{{ todo.completed ? 'done' : 'undone' }}">{{ todo.body }}</span>
                 <strong @click="deleteTask(todo)">X</strong>
             </li>
         </ul>
