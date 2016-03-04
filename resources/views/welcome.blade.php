@@ -8,16 +8,13 @@
 <div class="container">
     <div class="content">
         <div class="title" id="app">
-            <input placeholder="Enter ToDo" class="form-control" type="text" v-on:keyup.enter="save" v-model="input">
-            <ul class="list-group">
-                <li @click="complete(todo)" class="list-group-item " v-for="todo in todos">
-                    <span class="@{{ todo.completed ? 'done' : 'undone' }}">@{{ todo.body }}</span>
-                    <strong @click="deleteTask(todo)">X</strong>
-                </li>
-            </ul>
+            <todo heading="Todo"></todo>
         </div>
     </div>
 </div>
+<template id="todo">
+
+</template>
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
