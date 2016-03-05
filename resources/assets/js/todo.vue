@@ -4,9 +4,9 @@
         <ul class="list-group">
             <li @click="complete(todo)" class="list-group-item " v-for="todo in todos | filterBy filterKey">
                 <span class="{{ todo.completed ? 'done' : 'undone' }}">{{ todo.body }}</span>
-                <strong @click="deleteTask(todo)">X</strong>
             </li>
         </ul>
+        <button class="btn btn-default" @click="clearDoneTasks">Clear all done tasks</button>
     </div>
 </template>
 
@@ -17,7 +17,7 @@
             'heading'
         ],
 
-        data: function() {
+        data: function () {
             return {
                 input: '',
                 todos: []
@@ -49,6 +49,21 @@
             complete: function (todo) {
                 todo.completed = !todo.completed;
                 this.$http.post('api/todo/complete', todo);
+            },
+
+            clearDoneTasks: function () {
+                var completedTodos = [];
+                for (var i = 0; i < this.todos.length; i++) {
+                    var todo = this.todos[i];
+
+                    if (todo.completed) {
+                        completedTodos.push(todo);
+                        this.todos.$remove(todo);
+                    }
+                }
+                console.log(completedTodos);
+                this.$http.post('/api/todo/complete/delete',
+                        JSON.stringify(completedTodos));
             }
         }
     }

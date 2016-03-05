@@ -34,3 +34,7 @@ Route::post('/api/todo/delete', [
 Route::post('/api/todo/complete', [
     'uses' => 'TodoController@completeTodo'
 ]);
+
+Route::post('/api/todo/complete/delete', [
+    'uses' => 'TodoController@deleteCompletedTodos'
+]);

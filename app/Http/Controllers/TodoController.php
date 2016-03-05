@@ -40,4 +40,11 @@ class TodoController extends Controller
 
         $todo->save();
     }
+
+    public function deleteCompletedTodos(Request $request)
+    {
+        foreach ($request->input() as $item) {
+            Todo::findOrFail($item['id'])->delete();
+        }
+    }
 }
