@@ -14,4 +14,9 @@ class Todo extends Model
     protected $casts = [
         'completed' => 'boolean',
     ];
+
+    public function attributesToArray( $trwet )
+    {
+        $e = 12;
+    }
 }
