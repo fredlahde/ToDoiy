@@ -11,30 +11,34 @@
 |
 */
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
+Route::get(
+    '/',
+    function () {
+        return view('welcome');
+    }
+);
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get(
+    '/api/todos',
+    ['uses' => 'TodoController@getTodos']
+);
 
-Route::get('/api/todos', [
-   'uses' => 'TodoController@getTodos'
-]);
+Route::post(
+    '/api/todos',
+    ['uses' => 'TodoController@createTodo']
+);
 
-Route::post('/api/todos', [
-    'uses' => 'TodoController@createTodo'
-]);
+Route::post(
+    '/api/todo/delete',
+    ['uses' => 'TodoController@deleteTodo']
+);
 
-Route::post('/api/todo/delete', [
-    'uses' => 'TodoController@deleteTodo'
-]);
+Route::post(
+    '/api/todo/complete',
+    ['uses' => 'TodoController@completeTodo']
+);
 
-Route::post('/api/todo/complete', [
-    'uses' => 'TodoController@completeTodo'
-]);
-
-Route::post('/api/todo/complete/delete', [
-    'uses' => 'TodoController@deleteCompletedTodos'
-]);
+Route::post(
+    '/api/todo/complete/delete',
+    ['uses' => 'TodoController@deleteCompletedTodos']
+);
