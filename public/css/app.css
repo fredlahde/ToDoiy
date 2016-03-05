@@ -6667,6 +6667,8 @@ body {
   display: table;
   font-weight: 100;
   font-family: 'Helvetica', serif;
+  background-color: #202020;
+  color: white;
 }
 .container {
   text-align: center;
