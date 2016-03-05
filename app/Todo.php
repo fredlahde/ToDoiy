@@ -15,8 +15,8 @@ class Todo extends Model
         'completed' => 'boolean',
     ];
 
-    public function attributesToArray( $trwet )
+    public function attributesToArray($trwet)
     {
-        $e = 12;
+        $trwet = 12;
     }
 }
