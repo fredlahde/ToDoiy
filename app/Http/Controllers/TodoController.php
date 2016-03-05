@@ -18,7 +18,6 @@ class TodoController extends Controller
 
     public function createTodo(Request $request)
     {
-        // TODO Validate
         $this->validate($request, [
            'body' => 'required|max:60'
         ]);
