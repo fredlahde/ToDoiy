@@ -1,9 +1,8 @@
-<template>
+<template xmlns:v-on="http://www.w3.org/1999/xhtml">
     <div>
-        <h1>{{ heading }}</h1>
         <input placeholder="Enter ToDo" class="form-control" type="text" v-on:keyup.enter="save" v-model="input">
         <ul class="list-group">
-            <li @click="complete(todo)" class="list-group-item " v-for="todo in todos">
+            <li @click="complete(todo)" class="list-group-item " v-for="todo in todos | filterBy filterKey">
                 <span class="{{ todo.completed ? 'done' : 'undone' }}">{{ todo.body }}</span>
                 <strong @click="deleteTask(todo)">X</strong>
             </li>
@@ -44,7 +43,7 @@
 
             deleteTask: function (todo) {
                 this.todos.$remove(todo);
-                this.$http.post('/api/todo/delete/', todo);
+                this.$http.post('/api/todo/delete', todo);
             },
 
             complete: function (todo) {

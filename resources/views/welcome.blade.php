@@ -6,9 +6,16 @@
 </head>
 <body>
 <div class="container">
-    <div class="content">
-        <div class="title" id="app">
-            <todo heading="Todo"></todo>
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h1>ToDo</h1>
+    </div>
+</div>
+    <div class="row content">
+        <div class="col-md-12">
+            <div class="" id="app">
+                <todo heading="Todo"></todo>
+            </div>
         </div>
     </div>
 </div>
